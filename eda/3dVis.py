@@ -1,4 +1,3 @@
 import pydicom
 
-ds = 
-
+# TODO track this shit
