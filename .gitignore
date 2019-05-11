@@ -125,3 +125,4 @@ dmypy.json
 
 # Remove csv from github
 *.csv
+*.mnc
