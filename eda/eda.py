@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 import nibabel as nib
-from mpl_toolkits.mplot3d import axes3d, Axes3D #<-- Note the capitalization! 
+from mpl_toolkits.mplot3d import axes3d, Axes3D #<-- Note the capitalization!
 
 
 img = nib.load('data/MouseSkulls/475.mnc')
@@ -42,4 +42,3 @@ ax = plt.gca(projection='3d')
 
 
 plt.imshow(img_data, )
-
