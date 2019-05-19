@@ -2,6 +2,8 @@
 using PyCall
 using Images
 using ImageView
+using CUDAnative
+using CuArrays
 
 # ENV["PYTHON"] = "/home/kailukowiak/anaconda3/bin/python"
 # Useful code for setting the right python directory
