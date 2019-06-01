@@ -2,8 +2,8 @@ import matplotlib.pyplot as plt
 import nibabel as nib
 from mpl_toolkits.mplot3d import axes3d, Axes3D #<-- Note the capitalization!
 
-img = nib.load('MouseSkulls/475.mnc')
-
+# img = nib.load('MouseSkulls/475.mnc')
+img = nib.load("/home/kailukowiak/test.nii")
 data = img.get_data()
 
 
@@ -19,12 +19,13 @@ def show_slices(slices):
     for  slice in slices:
         axes[i].imshow(slice.T, cmap="gray", origin="lower")
         i+=1
+    
 
 slice_0 = img_data[350, :, :]
 slice_1 = img_data[:, 200, :]
 slice_2 = img_data[:, :, 225]
-show_slices([slice_0, slice_1, slice_2])
-plt.suptitle("Center slices for EPI image")  # doctest: +SKIP
+#show_slices([slice_0, slice_1, slice_2])
+# plt.suptitle("Center slices for EPI image")  # doctest: +SKIP
 
 
 plt.imshow(slice_1)
