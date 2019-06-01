@@ -4,12 +4,12 @@ using Images
 using ImageView
 using CUDAnative
 using CuArrays
-
+## Added
 # ENV["PYTHON"] = "/home/kailukowiak/anaconda3/bin/python"
 # Useful code for setting the right python directory
 nib = pyimport("nibabel")
 ## Load images
-img = nib.load("data/MouseSkulls/475.mnc")
+img = nib.load("eda/data/MouseSkulls/475.mnc")
 
 data = img.get_data()
 
@@ -22,7 +22,7 @@ imshow(slice1)
 
 imshow(data)
 
-img2 = nib.load("data/MouseSkulls/711_2_6.mnc")
+img2 = nib.load("eda/data/MouseSkulls/711_2_6.mnc")
 data2 = img2.get_data()
 
 imshow(data2)
