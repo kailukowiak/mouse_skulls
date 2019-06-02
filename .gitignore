@@ -128,3 +128,4 @@ dmypy.json
 *.mnc
 *.tag
 *.nii
+mnc_files.tar.gz
