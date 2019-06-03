@@ -19,7 +19,6 @@ def show_slices(slices):
     for  slice in slices:
         axes[i].imshow(slice.T, cmap="gray", origin="lower")
         i+=1
-    
 
 slice_0 = img_data[350, :, :]
 slice_1 = img_data[:, 200, :]
