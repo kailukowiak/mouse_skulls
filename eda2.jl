@@ -4,7 +4,7 @@ using ImageView
 nil = niread("data/bh_cc_bh0098_skull.nii")
 imshow(nil.raw)
 ##
-ni = niread("/home/kailukowiak/test.nii")
+# ni = niread("/home/kailukowiak/test.nii")
 
 # voxel_size is impotant for scaling the .tag files.
 v_size = voxel_size(ni.header)

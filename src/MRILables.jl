@@ -1,15 +1,16 @@
-module TarParser
+module MRILables
 export tag_parser
-
 using DelimitedFiles
+using NIfTI
 ##
 
-
 """
+    tagparser(fname)
+
 Function strips .tag file and returns unlabled arrays
 """
-function tag_parser(f_name)
-    f = open("eda/data/MouseSkulls/1179_landmarks.tag") do file
+function tagparser(fname)
+    f = open(fname) do file
         read(file, String)
     end;
     f = split(f, "Points =\n ")[2]
@@ -21,11 +22,9 @@ function tag_parser(f_name)
 end
 
 ##
-test = tag_parser("eda/data/MouseSkulls/1179_landmarks.tag")
-
+nil = niread("data/MouseSkulls/bh_cc_bh0098_skull.nii")
+imshow(nil.raw)
 
 ##
-using Glob
-glob("*_landmarks.tag", "eda/data/MouseSkulls/")
 
-end  # module TarParser
+end  # module TarParser+{{}}
