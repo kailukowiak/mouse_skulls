@@ -6,6 +6,6 @@ using Glob
 
 
 f_names = glob("*_landmarks.tag", "data/MouseSkulls/")
-# t1 = tag_parser("data/MouseSkulls/1179_landmarks.tag")
+t1 = tagparser("data/MouseSkulls/1179_landmarks.tag")
 
 length(f_names)

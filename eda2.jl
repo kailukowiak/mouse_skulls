@@ -1,13 +1,13 @@
 using NIfTI
 using Images
 using ImageView
-nil = niread("data/bh_cc_bh0098_skull.nii")
+nil = niread("data/MouseSkulls/475.nii")
 imshow(nil.raw)
 ##
 # ni = niread("/home/kailukowiak/test.nii")
 
 # voxel_size is impotant for scaling the .tag files.
-v_size = voxel_size(ni.header)
+v_size = voxel_size(nil.header)
 
 imshow(ni.raw)
 imshow(ni.raw[:, 200, :])
