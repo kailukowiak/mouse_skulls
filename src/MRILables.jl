@@ -1,13 +1,18 @@
-module MRILables
-export tagparser, VoxelArray, Lables
+module MRILabels
+export tagparser, VoxelArray, Labels
 using DelimitedFiles
 using NIfTI
-##
+
 
 """
     tagparser(fname)
 
-Function strips .tag file and returns unlabled arrays
+Function strips .tag file and retmodule MRILabels
+export tag_parser
+export tagparser, VoxelArray, Labels
+using DelimitedFiles
+using NIfTI
+##urns unlabled arrays
 """
 function tagparser(fname)
     f = open(fname) do file
@@ -24,11 +29,11 @@ end
 ##
 # nil = niread("data/MouseSkulls/bh_cc_bh0098_skull.nii")
 # imshow(nil.raw)
-mutable struct Lables
-    xtag
-    ytag
-    ztag
-    function Lables(m::Array{Float64,2})
+mutable struct Labels
+    xtag::Array{Float64,1}
+    ytag::Array{Float64,1}
+    ztag::Array{Float64,1}
+    function Labels(m::Array{Float64,2})
         xtag = m[:, 1]
         ytag = m[:, 2]
         ztag = m[:, 3]
@@ -59,24 +64,54 @@ mutable struct VoxelArray
 end # struct
 
 
-mutable struct VoxelLables
-    Lables::Lables
-    VoxArray::VoxelArray
+mutable struct VoxelLabels
+    Labels::Labels
+    VoxelArray::VoxelArray
+    xlab::Int64
+    ylab::Int64
+    zlab::Int64
+    """
+        VoxelLabels(Labels::Labels, VoxelArray::VoxelArray)
+
+    Combines `Labels` and VoxelArray` together and generates the voxel position
+    for the Labels
+    """
+    function VoxelLabels(Labels::Labels, VoxelArray::VoxelArray)
+        xlab = floor.(VoxelArray.vsizex .* Lables.xtag)
+        ylab = floor.(VoxelArray.vsizey .* Lables.ytag)
+        zlab = floor.(VoxelArray.vsizez .* Lables.ztag)
+        new(Labels, VoxelArray, xlab, ylab, zlab)
+    end # function
 end
 
 
 """
-    Scaler!(voxlables::VoxelArray, targetdim::Array{Int,1})
+    scaler!(voxLabels::VoxelArray, targetdim::Array{Int,1})
 
-documentation
+An inplace version of scaler()
 """
-function Scaler!(voxlables::VoxelArray, targetdim::Array{Int,1})
-    @assert(VoxelArray.)
+function scaler!(VoxelArray::VoxelLabels, targetdim::Array{Int,1})
+    # TODO Add asertion
+
     println(targetdim)
 end # function
 
-Scaler!(t3, [1, 3, 4])
+
+"""
+    scaler(voxLabels::VoxelArray, targetdim::Array{Int,1})
+
+documentation
+"""
+function scaler(VoxelArray::VoxelLabels, targetdim::Array{Int,1})
+    # TODO Add asertion
+    @assert size(targetdim) == (3,) "targtdim must be three Dimensions"
+    println(targetdim)
+end # function
 
 end  # module TarParser+{{}}
 
-[t3.xdim, t3.ydim, t3.zdim] .== [1, 3, 4]
+    @assert size(targetdim) == (3,) "targtdim must be three Dimensions"
+    println(targetdim)
+end # function
+
+end  # module TarParser+{{}}
