@@ -8,12 +8,14 @@ imshow(nil.raw)
 
 # voxel_size is impotant for scaling the .tag files.
 v_size = voxel_size(nil.header)
-
+t1 = nil.raw
 imshow(ni.raw)
 imshow(ni.raw[:, 200, :])
 
+size(t1)
+typeof(nil)
 # ~/PythonProjects/facial_key_points/eda/data/MouseSkulls/1179.mnc
-
+nil.header
 ##
 ni_raw = ni.raw
 ni_raw .> 200
