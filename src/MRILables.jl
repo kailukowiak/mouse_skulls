@@ -103,8 +103,8 @@ end # function
 documentation
 """
 function scaler(VoxelArray::VoxelLabels, targetdim::Array{Int,1})
-    # TODO Add asertion
-    @assert size(targetdim) == (3,) "targtdim must be three Dimensions"
+    @assert size(targetdim) == (3,) "Targtdim must be three dimensions"
+    all_even_assertion(targtdim)
     println(targetdim)
 end # function
 
@@ -113,5 +113,19 @@ end  # module TarParser+{{}}
     @assert size(targetdim) == (3,) "targtdim must be three Dimensions"
     println(targetdim)
 end # function
+
+"""
+    all_even_assertion(vector::Array{Int64,1})
+
+verifies that all dims are even (internal fuction)
+"""
+function all_even_assertion(vector::Array{Int64,1})
+    countdim = 1
+    for i in vector
+        @assert iseven(i) "$i, the $countdim element is not even"
+        countdim += 1
+    end
+end # function
+
 
 end  # module TarParser+{{}}

@@ -25,3 +25,9 @@ for (name, typ) in zip(fieldnames(T), T.types)
 end
 
 typeof(t3.vsizex)
+
+t3.vsizex
+
+test_dim = [500, 350, 600]
+
+typeof(test_dim)
