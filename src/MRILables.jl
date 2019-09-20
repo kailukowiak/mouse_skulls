@@ -108,11 +108,7 @@ function scaler(VoxelArray::VoxelLabels, targetdim::Array{Int,1})
     println(targetdim)
 end # function
 
-end  # module TarParser+{{}}
 
-    @assert size(targetdim) == (3,) "targtdim must be three Dimensions"
-    println(targetdim)
-end # function
 
 """
     all_even_assertion(vector::Array{Int64,1})
@@ -128,4 +124,13 @@ function all_even_assertion(vector::Array{Int64,1})
 end # function
 
 
-end  # module TarParser+{{}}
+"""
+    scalevoxels(varray::VoxelArray, targtdim::Array{Int, 1})
+
+documentation
+"""
+function scalevoxels(varray::VoxelArray, targtdim::Array{Int, 1})
+    body
+end # function
+
+end  # module MRILabels+{{}}

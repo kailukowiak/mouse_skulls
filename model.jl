@@ -4,18 +4,25 @@ using MRILables
 
 
 
+f_names = readdir("data/MouseSkulls/")
+
+match("*.nii", f_names)
+
+f_names[1] |> typeof
+"asome othe string 1234" |> typeof
+match(r"^[*]+.nii", f_names[2])
+
+match.(r"*.nii", f_names[1])
+
 f_names = glob("*_landmarks.tag", "data/MouseSkulls/")
 t1 = tagparser("data/MouseSkulls/1179_landmarks.tag")
 
-length(f_names)
 
 
 t3 = VoxelArray(nil)
 
 typeof(t3.img)
 t3.xdim
-
-fieldnames(t3)
 
 typeof(t3)
 
@@ -28,6 +35,26 @@ typeof(t3.vsizex)
 
 t3.vsizex
 
-test_dim = [500, 350, 600]
+test_dim = [500, 540, 800]
 
-typeof(test_dim)
+
+
+M = zeros(Int64, test_dim[1], test_dim[2], test_dim[3])
+
+size(M) ./ 2 .-1
+
+padarray(nil.raw)
+
+A = ones(Int64, 15, 7)
+
+padarray(A, Fill(0, (4,1), (4,4)))
+
+test1 = imresize(nil.raw, 50, 50, 50)
+
+imshow!(test1)
+
+typeof(nil.raw)
+
+typeof(test1)
+
+imshow(test1)

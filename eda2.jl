@@ -1,8 +1,10 @@
 using NIfTI
 using Images
 using ImageView
-nil = niread("data/MouseSkulls/475.nii")
+@time nil = niread("data/MouseSkulls/475.nii")
 imshow(nil.raw)
+
+
 ##
 # ni = niread("/home/kailukowiak/test.nii")
 
